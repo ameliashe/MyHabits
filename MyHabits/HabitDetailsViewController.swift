@@ -80,6 +80,8 @@ class HabitDetailsViewController: UIViewController {
 	@objc func editButtonTapped() {
 		let editVC = HabitEditViewController()
 		editVC.habit = habit
+
+		navigationController?.pushViewController(editVC, animated: true)
 	}
 
 	func isHabitDone(on date: Date) -> Bool {
