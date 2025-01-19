@@ -21,7 +21,6 @@ MyHabits is a visually engaging and intuitive habit-tracking application for iOS
 
 - **Programming Language:** Swift
 - **Frameworks:** UIKit
-- **Layout:**  
 - **Data Storage:** User Defaults
 - **Design Architecture:** MVC 
 
