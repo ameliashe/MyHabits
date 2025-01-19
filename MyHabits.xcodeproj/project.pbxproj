@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CEC9556A2D3C91AE007E1AFC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CEC955692D3C91AE007E1AFC /* Localizable.xcstrings */; };
+		CEC9556C2D3CA1EC007E1AFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEC9556B2D3CA1EC007E1AFC /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE9A059F2CF2BFB10054000A /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC955692D3C91AE007E1AFC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		CEC9556B2D3CA1EC007E1AFC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,6 +36,11 @@
 			path = MyHabits;
 			sourceTree = "<group>";
 		};
+		CEC955702D3CB17D007E1AFC /* Screenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +57,11 @@
 		CE9A05962CF2BFB10054000A = {
 			isa = PBXGroup;
 			children = (
+				CEC955702D3CB17D007E1AFC /* Screenshots */,
 				CEC955692D3C91AE007E1AFC /* Localizable.xcstrings */,
 				CE9A05A12CF2BFB10054000A /* MyHabits */,
 				CE9A05A02CF2BFB10054000A /* Products */,
+				CEC9556B2D3CA1EC007E1AFC /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +90,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				CE9A05A12CF2BFB10054000A /* MyHabits */,
+				CEC955702D3CB17D007E1AFC /* Screenshots */,
 			);
 			name = MyHabits;
 			packageProductDependencies = (
@@ -129,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC9556C2D3CA1EC007E1AFC /* README.md in Resources */,
 				CEC9556A2D3C91AE007E1AFC /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -145,9 +145,9 @@ class HabitCollectionViewCell: UITableViewCell {
 		habitName.text = habit.name
 		habitColor = habit.color
 		habitName.textColor = habitColor
-		habitCounter.text = NSLocalizedString("Cчётчик: \(habit.trackDates.count)", comment: "Counter label for the number of times the habit has been tracked")
+		habitCounter.text = NSLocalizedString("Cчётчик: ", comment: "Counter label for the number of times the habit has been tracked") + "\(habit.trackDates.count)"
 		habitTrackButton.isSelected = habit.isAlreadyTakenToday
-		habitTimeLabel.text = NSLocalizedString("Каждый день в \(dateFormatter.string(from: habit.date))", comment: "Time label showing the daily habit time")
+		habitTimeLabel.text = NSLocalizedString("Каждый день в ", comment: "Time label showing the daily habit time") + "\(dateFormatter.string(from: habit.date))"
 
 		if habit.isAlreadyTakenToday {
 			let config = UIImage.SymbolConfiguration(weight: .bold)

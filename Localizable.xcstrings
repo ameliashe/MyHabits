@@ -1,6 +1,23 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Cчётчик: " : {
+      "comment" : "Counter label for the number of times the habit has been tracked",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counter: "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cчётчик: "
+          }
+        }
+      }
+    },
     "OK" : {
       "comment" : "OK button title",
       "localizations" : {
@@ -172,7 +189,7 @@
       }
     },
     "Каждый день в " : {
-      "comment" : "Prefix for habit time label\nPrefix for time label",
+      "comment" : "Prefix for habit time label\nPrefix for time label\nTime label showing the daily habit time",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -106,7 +106,7 @@ class ProgressCollectionViewCell: UITableViewCell {
 		let progress = HabitsStore.shared.todayProgress
 		progressView.setProgress(progress, animated: true)
 		percentLabel.text = "\(Int(progress * 100))%"
-		progressLabel.text = progress == 1 ? "Все задачи выполнены!🎉" : "Всё получится!"
+		progressLabel.text = progress == 1 ? NSLocalizedString("Все задачи выполнены!🎉", comment: "Message when all tasks are completed") : NSLocalizedString("Всё получится!", comment: "Encouraging message when not all tasks are completed")
 	}
 
 }
