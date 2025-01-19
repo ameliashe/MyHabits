@@ -2,15 +2,18 @@
 //  HabitTableViewCell.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 11/24/24.
+//  Created by Amelia Shekikhacheva on 11/24/24.
 //
 
 import UIKit
 
 class HabitCollectionViewCell: UITableViewCell {
 
+	//MARK: Model
 	var currentHabit: Habit?
 
+
+	//MARK: UI Elements
 	let habitName: UILabel = {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -52,6 +55,8 @@ class HabitCollectionViewCell: UITableViewCell {
 
 	var habitColor = UIColor()
 
+
+	//MARK: Init
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupCellStyle()
@@ -60,15 +65,17 @@ class HabitCollectionViewCell: UITableViewCell {
 		setupButton()
 	}
 
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
 	func setupCellStyle() {
 		backgroundColor = .clear
 		selectionStyle = .none
 	}
 
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
+	
+	//MARK: UI Setup
 	func setupButton() {
 		habitTrackButton.addTarget(self, action: #selector(habitTrackButtonTapped), for: .touchUpInside)
 	}
@@ -115,6 +122,8 @@ class HabitCollectionViewCell: UITableViewCell {
 		])
 	}
 
+
+	//MARK: User Interaction Methods
 	@objc private func habitTrackButtonTapped() {
 		guard let habit = currentHabit else { return }
 

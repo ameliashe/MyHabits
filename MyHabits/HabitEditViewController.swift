@@ -2,13 +2,14 @@
 //  createHabitViewController.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 12/3/24.
+//  Created by Amelia Shekikhacheva on 12/3/24.
 //
 
 import UIKit
 
 class HabitEditViewController: UIViewController {
 
+	//MARK: Model
 	var habit: Habit!
 	let store = HabitsStore.shared
 
@@ -18,6 +19,8 @@ class HabitEditViewController: UIViewController {
 		}
 	}
 
+
+	//MARK: UI Elements
 	let nameLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Название"
@@ -91,6 +94,8 @@ class HabitEditViewController: UIViewController {
 		return button
 	}()
 
+
+	//MARK: Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .white
@@ -113,6 +118,8 @@ class HabitEditViewController: UIViewController {
 		navigationItem.largeTitleDisplayMode = .never
 	}
 
+
+	//MARK: UI Setup
 	func addSubviews() {
 		view.addSubview(nameLabel)
 		view.addSubview(nameField)
@@ -199,6 +206,8 @@ class HabitEditViewController: UIViewController {
 		selectedTimeLabel.text = formatter.string(from: datePicker.date)
 	}
 
+
+	//MARK: User Interaction methods
 	func addDatePickerTarget() {
 		datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
 	}
@@ -264,6 +273,8 @@ class HabitEditViewController: UIViewController {
 }
 
 extension HabitEditViewController: UIColorPickerViewControllerDelegate {
+
+	//MARK: ColorPicker Setup
 	func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
 		selectedColor = viewController.selectedColor
 	}

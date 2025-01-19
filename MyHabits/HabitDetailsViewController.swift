@@ -2,18 +2,21 @@
 //  HabitDetailsViewController.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 12/7/24.
+//  Created by Amelia Shekikhacheva on 12/7/24.
 //
 
 import UIKit
 
 class HabitDetailsViewController: UIViewController {
 
+	//MARK: Model
 	var habit: Habit!
 	let store = HabitsStore.shared
 
 	var recentDates: [Date] = []
 
+
+	//MARK: UI Elements
 	let tableView: UITableView = {
 		let table = UITableView(frame: .zero, style: .grouped)
 		table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -21,6 +24,8 @@ class HabitDetailsViewController: UIViewController {
 		return table
 	}()
 
+
+	//MARK: Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .systemBackground
@@ -33,6 +38,8 @@ class HabitDetailsViewController: UIViewController {
 		setupRecentDates()
 	}
 
+
+	//MARK: UI Setup
 	func setupNavigationBar() {
 		title = habit.name
 		navigationController?.navigationBar.prefersLargeTitles = true
@@ -73,6 +80,8 @@ class HabitDetailsViewController: UIViewController {
 		}
 	}
 
+
+	//MARK:  User Interaction Methods
 	@objc func backButtonTapped() {
 		navigationController?.popViewController(animated: true)
 	}
@@ -84,6 +93,8 @@ class HabitDetailsViewController: UIViewController {
 		navigationController?.pushViewController(editVC, animated: true)
 	}
 
+
+	//MARK: Model interaction
 	func isHabitDone(on date: Date) -> Bool {
 		let calendar = Calendar.current
 		return habit.trackDates.contains(where: { trackDate in
@@ -116,6 +127,9 @@ class HabitDetailsViewController: UIViewController {
 }
 
 extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+
+	
+	//MARK: TableView Setup
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}

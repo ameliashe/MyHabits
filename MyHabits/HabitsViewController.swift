@@ -2,13 +2,14 @@
 //  HabitsViewController.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 11/24/24.
+//  Created by Amelia Shekikhacheva on 11/24/24.
 //
 
 import UIKit
 
 class HabitsViewController: UIViewController {
 
+	//MARK: Model
 	enum Identifiers: String {
 		case progressCell = "ProgressCell_ID"
 		case habitCell = "HabitCell_ID"
@@ -26,6 +27,8 @@ class HabitsViewController: UIViewController {
 		return tableView
 	}()
 
+
+	//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupHabitsTableView()
@@ -38,6 +41,8 @@ class HabitsViewController: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(updateHabitsList), name: NSNotification.Name("HabitsUpdated"), object: nil)
     }
 
+
+	//MARK: UI Setup
 	func addSubviews() {
 		view.addSubview(habitsTableView)
 	}
@@ -72,7 +77,9 @@ class HabitsViewController: UIViewController {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 	}
-	
+
+
+	//MARK: User Interaction Methods
 	@objc func addButtonTapped() {
 		let CreateVC: HabitViewController = {
 			let habitVC = HabitViewController()

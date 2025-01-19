@@ -2,13 +2,14 @@
 //  ProgressTableViewCell.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 11/24/24.
+//  Created by Amelia Shekikhacheva on 11/24/24.
 //
 
 import UIKit
 
 class ProgressCollectionViewCell: UITableViewCell {
 
+	//MARK: UI Elements
 	let containerView: UIView = {
 		let view = UIView()
 		view.backgroundColor = .white
@@ -42,7 +43,9 @@ class ProgressCollectionViewCell: UITableViewCell {
 		view.setProgress(HabitsStore.shared.todayProgress, animated: true)
 		return view
 	}()
-	
+
+
+	//MARK: Init
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupCellStyle()
@@ -56,6 +59,8 @@ class ProgressCollectionViewCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+
+	//MARK: UI Setup
 	func setupCellStyle() {
 		backgroundColor = .clear
 		selectionStyle = .none
@@ -95,6 +100,8 @@ class ProgressCollectionViewCell: UITableViewCell {
 		])
 	}
 
+
+	//MARK: User Interaction Methods
 	@objc func updateProgress() {
 		let progress = HabitsStore.shared.todayProgress
 		progressView.setProgress(progress, animated: true)

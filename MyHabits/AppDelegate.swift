@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MyHabits
 //
-//  Created by Amelia Romanova on 11/24/24.
+//  Created by Amelia Shekikhacheva on 11/24/24.
 //
 
 import UIKit
