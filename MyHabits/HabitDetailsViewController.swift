@@ -120,6 +120,7 @@ class HabitDetailsViewController: UIViewController {
 			}
 			if !alreadyTracked {
 				habit.trackDates.append(date)
+				generateHapticFeedback()
 			}
 		}
 	}
@@ -130,7 +131,14 @@ class HabitDetailsViewController: UIViewController {
 			calendar.isDate($0, inSameDayAs: date)
 		}) {
 			habit.trackDates.remove(at: index)
+			generateHapticFeedback()
 		}
+	}
+
+	private func generateHapticFeedback() {
+		let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+		feedbackGenerator.prepare()
+		feedbackGenerator.impactOccurred()
 	}
 }
 

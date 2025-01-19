@@ -152,7 +152,13 @@ public final class HabitsStore {
         habit.trackDates.append(.init())
         save()
     }
-    
+
+	func untrack(_ habit: Habit) {
+			if let lastDate = habit.trackDates.last, Calendar.current.isDateInToday(lastDate) {
+				habit.trackDates.removeLast()
+			}
+		}
+
     /// Возвращает отформатированное время для даты.
     /// - Parameter index: Индекс в массиве dates.
     public func trackDateString(forIndex index: Int) -> String? {

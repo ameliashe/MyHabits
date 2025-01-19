@@ -265,7 +265,7 @@ class HabitEditViewController: UIViewController {
 	@objc func deleteButtonTapped() {
 		let alert = UIAlertController(
 			title: NSLocalizedString("Удалить привычку", comment: "Title for delete habit confirmation alert"),
-			message: NSLocalizedString("Вы хотите удалить привычку \"\(habit.name)\"?", comment: "Message for delete habit confirmation alert"),
+			message: NSLocalizedString("Вы хотите удалить привычку ", comment: "Message for delete habit confirmation alert") + "\"\(habit.name)\"?",
 			preferredStyle: .alert
 		)
 		alert.addAction(

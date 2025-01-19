@@ -12,7 +12,7 @@ MyHabits is a visually engaging and intuitive habit-tracking application for iOS
 - **✨ Add New Habits:** Easily create habits by specifying a name, choosing a unique color, and setting a preferred time.
 - **🎨 Custom Color Picker:** Personalize each habit with your favorite colors using the built-in color picker.
 - **⏰ Daily Habit Time:** Set a daily schedule for your habits with a convenient time picker.
-- **⚠️ Validation:** Receive helpful alerts if you attempt to save a habit without entering a name.
+- **✅ Feedback:** Get satisfying feedback via Taptic Engine upon tracking the habit.
 - **💾 Habit Storage:** Automatically save all your habits using User Defaults, ensuring they are available for future reference.
 
 ---
@@ -45,5 +45,5 @@ Have questions or want to contribute? Reach out to the developer:
 
 - **Author:** Amelia Shekikhacheva
 - **Email:** [ameliashe@icloud.com](mailto\:ameliashe@icloud.com)
-- **GitHub:** [username](https://github.com/username)
+- **GitHub:** [ameliashe](https://github.com/ameliashe)
 

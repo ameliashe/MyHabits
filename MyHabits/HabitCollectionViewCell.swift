@@ -26,14 +26,12 @@ class HabitCollectionViewCell: UITableViewCell {
 	let habitTimeLabel: UILabel = {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 13)
-		label.textColor = .lightGray
 		return label
 	}()
 
 	let habitCounter: UILabel = {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 13)
-		label.textColor = .lightGray
 		return label
 	}()
 	
@@ -127,11 +125,25 @@ class HabitCollectionViewCell: UITableViewCell {
 	@objc private func habitTrackButtonTapped() {
 		guard let habit = currentHabit else { return }
 
-		if !habit.isAlreadyTakenToday {
-			HabitsStore.shared.track(habit)
-			NotificationCenter.default.post(name: NSNotification.Name("HabitsUpdated"), object: nil)
-		}
+
+		if habit.isAlreadyTakenToday {
+
+				HabitsStore.shared.untrack(habit)
+			} else {
+
+				HabitsStore.shared.track(habit)
+			}
+
+		NotificationCenter.default.post(name: NSNotification.Name("HabitsUpdated"), object: nil)
+		generateHapticFeedback()
 		update(habit)
+
+	}
+
+	private func generateHapticFeedback() {
+		let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+		feedbackGenerator.prepare()
+		feedbackGenerator.impactOccurred()
 	}
 
 	func update(_ habit: Habit) {
@@ -145,9 +157,35 @@ class HabitCollectionViewCell: UITableViewCell {
 		habitName.text = habit.name
 		habitColor = habit.color
 		habitName.textColor = habitColor
-		habitCounter.text = NSLocalizedString("Cчётчик: ", comment: "Counter label for the number of times the habit has been tracked") + "\(habit.trackDates.count)"
+
+
+		if let counterImage = UIImage(systemName: "checkmark.rectangle.stack") {
+			let counterAttachment = NSTextAttachment()
+			counterAttachment.image = counterImage.withRenderingMode(.alwaysTemplate)
+			counterAttachment.bounds = CGRect(x: 0, y: -2, width: 14, height: 14)
+
+			let CAString = NSMutableAttributedString(attachment: counterAttachment)
+			CAString.append(NSAttributedString(string: NSLocalizedString(" Счётчик: ", comment: "Counter label for the number of times the habit has been tracked")))
+			CAString.append(NSAttributedString(string: "\(habit.trackDates.count)"))
+
+			habitCounter.attributedText = CAString
+			habitCounter.textColor = .habitIndigo.withAlphaComponent(0.5)
+		}
+
 		habitTrackButton.isSelected = habit.isAlreadyTakenToday
-		habitTimeLabel.text = NSLocalizedString("Каждый день в ", comment: "Time label showing the daily habit time") + "\(dateFormatter.string(from: habit.date))"
+
+		if let clockImage = UIImage(systemName: "clock.badge") {
+			let clockAttachment = NSTextAttachment()
+			clockAttachment.image = clockImage.withRenderingMode(.alwaysTemplate)
+			clockAttachment.bounds = CGRect(x: 0, y: -3, width: 14, height: 14)
+
+			let attributedText = NSMutableAttributedString(attachment: clockAttachment)
+			attributedText.append(NSAttributedString(string: NSLocalizedString(" Каждый день в ", comment: "Time label showing the daily habit time")))
+			attributedText.append(NSAttributedString(string: dateFormatter.string(from: habit.date)))
+
+			habitTimeLabel.attributedText = attributedText
+			habitTimeLabel.textColor = .lightGray
+		}
 
 		if habit.isAlreadyTakenToday {
 			let config = UIImage.SymbolConfiguration(weight: .bold)
@@ -159,7 +197,7 @@ class HabitCollectionViewCell: UITableViewCell {
 			habitTrackButton.tintColor = .white
 		} else {
 			habitTrackButton.layer.borderColor = habit.color.cgColor
-			habitTrackButton.backgroundColor = .clear
+			habitTrackButton.backgroundColor = habit.color.withAlphaComponent(0.15)
 			habitTrackButton.setImage(nil, for: .normal)
 		}
 	}

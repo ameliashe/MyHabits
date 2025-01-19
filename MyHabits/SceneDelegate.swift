@@ -28,8 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let tabBarController = UITabBarController()
 		tabBarController.viewControllers = controllers
 
-		habitsViewController.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
-		infoViewController.tabBarItem = UITabBarItem(title: "Информация", image: UIImage(systemName: "info.circle.fill"), tag: 1)
+		habitsViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Сегодня", comment: "Today"), image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
+		infoViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Информация", comment: "Title for the information screen"), image: UIImage(systemName: "info.circle.fill"), tag: 1)
 
 		tabBarController.selectedIndex = 0
 		tabBarController.tabBar.isTranslucent = false

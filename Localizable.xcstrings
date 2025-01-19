@@ -1,19 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Cчётчик: " : {
-      "comment" : "Counter label for the number of times the habit has been tracked",
+    " Каждый день в " : {
+      "comment" : "Time label showing the daily habit time",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Counter: "
+            "value" : " Everyday at "
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cчётчик: "
+            "value" : " Каждый день в "
+          }
+        }
+      }
+    },
+    " Счётчик: " : {
+      "comment" : "Counter label for the number of times the habit has been tracked",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Counter: "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Счётчик: "
           }
         }
       }
@@ -154,6 +171,23 @@
         }
       }
     },
+    "Вы хотите удалить привычку " : {
+      "comment" : "Message for delete habit confirmation alert",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you want to remove this habit:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы хотите удалить эту привычку:"
+          }
+        }
+      }
+    },
     "Имя не может быть пустым!" : {
       "comment" : "Error title for empty habit name",
       "localizations" : {
@@ -189,7 +223,7 @@
       }
     },
     "Каждый день в " : {
-      "comment" : "Prefix for habit time label\nPrefix for time label\nTime label showing the daily habit time",
+      "comment" : "Prefix for habit time label\nPrefix for time label",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -228,13 +262,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancel"
+            "value" : "No"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отменить"
+            "value" : "Нет"
           }
         }
       }
@@ -381,13 +415,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remove"
+            "value" : "Yes"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Удалить"
+            "value" : "Да"
           }
         }
       }
@@ -398,13 +432,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remove habit"
+            "value" : "Remove"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Удалить привычку"
+            "value" : "Удалить"
           }
         }
       }
