@@ -209,6 +209,11 @@ class HabitViewController: UIViewController {
 
 	@objc func createButtonTapped() {
 		guard let name = nameField.text, !name.isEmpty else {
+
+			let alertController = UIAlertController(title: "Имя не может быть пустым!", message: "Введите название привычки.", preferredStyle: .alert)
+			let okayAction = UIAlertAction(title: "OK", style: .default)
+			alertController.addAction(okayAction)
+			present(alertController, animated: true)
 			return
 		}
 
