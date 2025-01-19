@@ -22,7 +22,7 @@ class ProgressCollectionViewCell: UITableViewCell {
 		let label = UILabel()
 		label.textColor = .systemGray
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
-		label.text = HabitsStore.shared.todayProgress == 1 ? "Все задачи выполнены!🎉" : "Всё получится!"
+		label.text = HabitsStore.shared.todayProgress == 1 ? NSLocalizedString("Все задачи выполнены!🎉", comment: "Message when all tasks are completed") : NSLocalizedString("Всё получится!", comment: "Encouraging message when not all tasks are completed")
 		return label
 	}()
 

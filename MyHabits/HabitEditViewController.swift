@@ -23,7 +23,7 @@ class HabitEditViewController: UIViewController {
 	//MARK: UI Elements
 	let nameLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Название"
+		label.text = NSLocalizedString("Название", comment: "Label for habit name")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -31,7 +31,7 @@ class HabitEditViewController: UIViewController {
 
 	let nameField: UITextField = {
 		let field = UITextField()
-		field.placeholder = "Бегать по утрам, спать 8 часов и т.п."
+		field.placeholder = NSLocalizedString("Бегать по утрам, спать 8 часов и т.п.", comment: "Placeholder for habit name input")
 		field.borderStyle = .none
 		field.font = .systemFont(ofSize: 13, weight: .regular)
 		field.textColor = .black
@@ -40,7 +40,7 @@ class HabitEditViewController: UIViewController {
 
 	let colorLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Цвет"
+		label.text = NSLocalizedString("Цвет", comment: "Label for selecting the color of the habit")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -56,7 +56,7 @@ class HabitEditViewController: UIViewController {
 
 	let timeLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Время"
+		label.text = NSLocalizedString("Время", comment: "Label for selecting the time of the habit")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -65,7 +65,7 @@ class HabitEditViewController: UIViewController {
 	let prefixTimeLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = .black
-		label.text = "Каждый день в "
+		label.text = NSLocalizedString("Каждый день в ", comment: "Prefix for time label")
 		label.font = .systemFont(ofSize: 13, weight: .regular)
 		label.textAlignment = .center
 		return label
@@ -88,7 +88,10 @@ class HabitEditViewController: UIViewController {
 
 	let deleteButton: UIButton = {
 		let button = UIButton()
-		button.setTitle("Удалить привычку", for: .normal)
+		button.setTitle(
+			NSLocalizedString("Удалить привычку", comment: "Button title to delete a habit"),
+			for: .normal
+		)
 		button.setTitleColor(.red, for: .normal)
 		button.titleLabel?.font = .systemFont(ofSize: 13, weight: .regular)
 		return button
@@ -180,13 +183,23 @@ class HabitEditViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		title = "Править"
+		title = NSLocalizedString("Править", comment: "Title for editing a habit screen")
 		view.backgroundColor = .white
 		navigationController?.navigationBar.isTranslucent = false
 		navigationController?.navigationBar.tintColor = UIColor(named: "HabitPurple")
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancelButtonTapped))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(createButtonTapped))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Отменить", comment: "Cancel button title"),
+			style: .plain,
+			target: self,
+			action: #selector(cancelButtonTapped)
+		)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Сохранить", comment: "Save button title"),
+			style: .done,
+			target: self,
+			action: #selector(createButtonTapped)
+		)
 	}
 
 	func setupInitialValues() {
@@ -251,21 +264,32 @@ class HabitEditViewController: UIViewController {
 
 	@objc func deleteButtonTapped() {
 		let alert = UIAlertController(
-			title: "Удалить привычку",
-			message: "Вы хотите удалить привычку \"\(habit.name)\"?",
+			title: NSLocalizedString("Удалить привычку", comment: "Title for delete habit confirmation alert"),
+			message: NSLocalizedString("Вы хотите удалить привычку \"\(habit.name)\"?", comment: "Message for delete habit confirmation alert"),
 			preferredStyle: .alert
 		)
-		alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+		alert.addAction(
+			UIAlertAction(
+				title: NSLocalizedString("Отмена", comment: "Cancel button in delete confirmation"),
+				style: .cancel,
+				handler: nil
+			)
+		)
 
-		alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { [weak self] _ in
-			guard let self = self else { return }
-			if let index = HabitsStore.shared.habits.firstIndex(of: self.habit) {
-				HabitsStore.shared.habits.remove(at: index)
-			}
-
-			NotificationCenter.default.post(name: NSNotification.Name("HabitsUpdated"), object: nil)
-			self.navigationController?.popToRootViewController(animated: true)
-		}))
+		alert.addAction(
+			UIAlertAction(
+				title: NSLocalizedString("Удалить", comment: "Delete button in delete confirmation"),
+				style: .destructive,
+				handler: { [weak self] _ in
+					guard let self = self else { return }
+					if let index = HabitsStore.shared.habits.firstIndex(of: self.habit) {
+						HabitsStore.shared.habits.remove(at: index)
+					}
+					
+					NotificationCenter.default.post(name: NSNotification.Name("HabitsUpdated"), object: nil)
+					self.navigationController?.popToRootViewController(animated: true)
+				})
+		)
 
 		present(alert, animated: true, completion: nil)
 	}

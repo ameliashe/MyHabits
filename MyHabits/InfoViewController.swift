@@ -28,7 +28,7 @@ class InfoViewController: UIViewController {
 		let label = UILabel()
 		label.textColor = .black
 		label.font = .systemFont(ofSize: 20, weight: .semibold)
-		label.text = "Привычка за 21 день"
+		label.text = NSLocalizedString("Привычка за 21 день", comment: "Title for the habit-building guide heading")
 		return label
 	}()
 
@@ -54,7 +54,7 @@ class InfoViewController: UIViewController {
 
 	//MARK: UI Setup
 	func setupNavigationBar() {
-		title = "Информация"
+		title = NSLocalizedString("Информация", comment: "Title for the information screen")
 		view.backgroundColor = .white
 		navigationController?.navigationBar.isTranslucent = false
 	}

@@ -31,10 +31,8 @@ class HabitDetailsViewController: UIViewController {
 		view.backgroundColor = .systemBackground
 
 		addSubviews()
-
 		setupNavigationBar()
 		setupTableView()
-
 		setupRecentDates()
 	}
 
@@ -48,8 +46,18 @@ class HabitDetailsViewController: UIViewController {
 		navigationController?.navigationBar.isTranslucent = false
 		navigationController?.navigationBar.tintColor = UIColor(named: "HabitPurple")
 
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Сегодня", style: .plain, target: nil, action: nil)
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonTapped))
+		navigationItem.backBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Сегодня", comment: "Back button title for navigating to the previous screen"),
+			style: .plain,
+			target: nil,
+			action: nil
+		)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Править", comment: "Edit button title for editing the habit"),
+			style: .plain,
+			target: self,
+			action: #selector(editButtonTapped)
+		)
 	}
 
 	func addSubviews() {
@@ -135,7 +143,7 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "АКТИВНОСТЬ"
+		return NSLocalizedString("АКТИВНОСТЬ", comment: "Section header for activity table")
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -153,11 +161,11 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
 		let calendar = Calendar.current
 		if calendar.isDateInYesterday(date) {
-			cell.textLabel?.text = "Вчера"
+			cell.textLabel?.text = NSLocalizedString("Вчера", comment: "Label for yesterday's date")
 		} else {
 			if let dayBeforeYesterday = calendar.date(byAdding: .day, value: -2, to: Date()),
 			   calendar.isDate(date, inSameDayAs: dayBeforeYesterday) {
-				cell.textLabel?.text = "Позавчера"
+				cell.textLabel?.text = NSLocalizedString("Позавчера", comment: "Label for the day before yesterday's date")
 			} else {
 				cell.textLabel?.text = formatter.string(from: date)
 			}

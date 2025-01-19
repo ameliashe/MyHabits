@@ -68,7 +68,7 @@ class HabitsViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		title = "Сегодня"
+		title = NSLocalizedString("Сегодня", comment: "Today")
 		view.backgroundColor = .white
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationController?.navigationBar.isTranslucent = false

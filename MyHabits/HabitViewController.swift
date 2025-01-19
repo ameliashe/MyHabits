@@ -22,7 +22,7 @@ class HabitViewController: UIViewController {
 	//MARK: UI Elements
 	let nameLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Название"
+		label.text = NSLocalizedString("Название", comment: "Habit name label")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -30,7 +30,7 @@ class HabitViewController: UIViewController {
 
 	let nameField: UITextField = {
 		let field = UITextField()
-		field.placeholder = "Бегать по утрам, спать 8 часов и т.п."
+		field.placeholder = NSLocalizedString("Бегать по утрам, спать 8 часов и т.п.", comment: "Placeholder for habit name input")
 		field.borderStyle = .none
 		field.font = .systemFont(ofSize: 13, weight: .regular)
 		field.textColor = .black
@@ -39,7 +39,7 @@ class HabitViewController: UIViewController {
 
 	let colorLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Цвет"
+		label.text = NSLocalizedString("Цвет", comment: "Habit color label")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -55,7 +55,7 @@ class HabitViewController: UIViewController {
 
 	let timeLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Время"
+		label.text = NSLocalizedString("Время", comment: "Habit time label")
 		label.font = .systemFont(ofSize: 13, weight: .semibold)
 		label.textColor = .black
 		return label
@@ -64,7 +64,7 @@ class HabitViewController: UIViewController {
 	let prefixTimeLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = .black
-		label.text = "Каждый день в "
+		label.text = NSLocalizedString("Каждый день в ", comment: "Prefix for habit time label")
 		label.font = .systemFont(ofSize: 13, weight: .regular)
 		label.textAlignment = .center
 		return label
@@ -163,13 +163,27 @@ class HabitViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		title = "Создать"
+		title = NSLocalizedString("Создать", comment: "Title for habit creation screen")
 		view.backgroundColor = .white
 		navigationController?.navigationBar.isTranslucent = false
 		navigationController?.navigationBar.tintColor = UIColor(named: "HabitPurple")
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancelButtonTapped))
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(createButtonTapped))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Отменить", comment: "Cancel button title"),
+			style: .plain,
+			target: self,
+			action: #selector(
+				cancelButtonTapped
+			)
+		)
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			title: NSLocalizedString("Сохранить", comment: "Save button title"),
+			style: .done,
+			target: self,
+			action: #selector(
+				createButtonTapped
+			)
+		)
 	}
 
 	func setupInitialTime() {
@@ -210,8 +224,15 @@ class HabitViewController: UIViewController {
 	@objc func createButtonTapped() {
 		guard let name = nameField.text, !name.isEmpty else {
 
-			let alertController = UIAlertController(title: "Имя не может быть пустым!", message: "Введите название привычки.", preferredStyle: .alert)
-			let okayAction = UIAlertAction(title: "OK", style: .default)
+			let alertController = UIAlertController(
+				title: NSLocalizedString("Имя не может быть пустым!", comment: "Error title for empty habit name"),
+				message: NSLocalizedString("Введите название привычки.", comment: "Error message for empty habit name"),
+				preferredStyle: .alert
+			)
+			let okayAction = UIAlertAction(
+				title: NSLocalizedString("OK", comment: "OK button title"),
+				style: .default
+			)
 			alertController.addAction(okayAction)
 			present(alertController, animated: true)
 			return
