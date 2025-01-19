@@ -1,7 +1,7 @@
 # MyHabits
 
 ### Screenshots
-![screenshots](Screenshots/mainscreenshot.jpg)
+![screenshots](Screenshots/mainscreenshot.jpg?raw=true&timestamp=123456)
 
 MyHabits is a visually engaging and intuitive habit-tracking application for iOS. It empowers users to create and manage their daily habits effortlessly while providing a vibrant and user-friendly interface.
 
